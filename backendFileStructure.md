@@ -44,7 +44,7 @@ graph TD
 
   A --> A7[.env]
   A --> A8[.gitignore]
-```
   A --> A9[server.js]
   A --> A10[package.json]
   A --> A11[README.md]
+```
