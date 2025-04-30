@@ -1,3 +1,4 @@
+```mermaid
 graph TD
   A[sports-backend/] --> A1[config/]
   A1 --> A1a[db.js]
@@ -43,6 +44,7 @@ graph TD
 
   A --> A7[.env]
   A --> A8[.gitignore]
+```
   A --> A9[server.js]
   A --> A10[package.json]
   A --> A11[README.md]
