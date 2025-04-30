@@ -1,50 +1,83 @@
 ```mermaid
-graph TD
-  A[sports-backend/] --> A1[config/]
-  A1 --> A1a[db.js]
-  A1 --> A1b[roles.js]
 
-  A --> A2[controllers/]
-  A2 --> A2a[auth.controller.js]
-  A2 --> A2b[user.controller.js]
-  A2 --> A2c[tournament.controller.js]
-  A2 --> A2d[sport.controller.js]
-  A2 --> A2e[match.controller.js]
-  A2 --> A2f[auction.controller.js]
-  A2 --> A2g[team.controller.js]
-  A2 --> A2h[bid.controller.js]
+ flowchart TD
+  %% Root Directory
+  subgraph sports-backend/
+    direction TB
 
-  A --> A3[middleware/]
-  A3 --> A3a[authMiddleware.js]
-  A3 --> A3b[roleMiddleware.js]
-  A3 --> A3c[errorHandler.js]
+    subgraph config/
+      db[db.js]
+      roles[roles.js]
+    end
 
-  A --> A4[models/]
-  A4 --> A4a[User.js]
-  A4 --> A4b[Tournament.js]
-  A4 --> A4c[Sport.js]
-  A4 --> A4d[Match.js]
-  A4 --> A4e[Auction.js]
-  A4 --> A4f[Team.js]
-  A4 --> A4g[Bid.js]
+    subgraph middleware/
+      authMW[authMiddleware.js]
+      roleMW[roleMiddleware.js]
+      errorHandler[errorHandler.js]
+    end
 
-  A --> A5[routes/]
-  A5 --> A5a[auth.routes.js]
-  A5 --> A5b[user.routes.js]
-  A5 --> A5c[tournament.routes.js]
-  A5 --> A5d[sport.routes.js]
-  A5 --> A5e[match.routes.js]
-  A5 --> A5f[auction.routes.js]
-  A5 --> A5g[team.routes.js]
-  A5 --> A5h[bid.routes.js]
+    subgraph utils/
+      token[generateToken.js]
+      validators[validators.js]
+    end
 
-  A --> A6[utils/]
-  A6 --> A6a[generateToken.js]
-  A6 --> A6b[validators.js]
+    subgraph models/
+      User[User.js]
+      Tournament[Tournament.js]
+      Sport[Sport.js]
+      Match[Match.js]
+      Auction[Auction.js]
+      Team[Team.js]
+      Bid[Bid.js]
+    end
 
-  A --> A7[.env]
-  A --> A8[.gitignore]
-  A --> A9[server.js]
-  A --> A10[package.json]
-  A --> A11[README.md]
+    subgraph controllers/
+      authC[auth.controller.js]
+      userC[user.controller.js]
+      tournamentC[tournament.controller.js]
+      sportC[sport.controller.js]
+      matchC[match.controller.js]
+      auctionC[auction.controller.js]
+      teamC[team.controller.js]
+      bidC[bid.controller.js]
+    end
+
+    subgraph routes/
+      authR[auth.routes.js]
+      userR[user.routes.js]
+      tournamentR[tournament.routes.js]
+      sportR[sport.routes.js]
+      matchR[match.routes.js]
+      auctionR[auction.routes.js]
+      teamR[team.routes.js]
+      bidR[bid.routes.js]
+    end
+
+    env[.env]
+    git[.gitignore]
+    server[server.js]
+    pkg[package.json]
+    readme[README.md]
+
+  end
+
+  %% Logical Connections
+  authR --> authC --> User
+  userR --> userC --> User
+  tournamentR --> tournamentC --> Tournament
+  sportR --> sportC --> Sport
+  matchR --> matchC --> Match
+  auctionR --> auctionC --> Auction
+  teamR --> teamC --> Team
+  bidR --> bidC --> Bid
+
+  authC --> token
+  authMW --> authC
+  roleMW --> userC
+  errorHandler --> authC
+
+  server --> db
+  server --> routes
+  server --> middleware
+
 ```
