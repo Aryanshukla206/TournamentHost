@@ -32,21 +32,21 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-        
+
         {/* Stats */}
         <div className="bg-primary-800 border-t border-primary-700">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               <div className="text-center">
-                <p className="text-3xl md:text-4xl font-bold text-white">1000+</p>
+                <p className="text-3xl md:text-4xl font-bold text-white">10+</p>
                 <p className="text-neutral-300 mt-1 text-sm md:text-base">Tournaments Hosted</p>
               </div>
               <div className="text-center">
-                <p className="text-3xl md:text-4xl font-bold text-white">50k+</p>
+                <p className="text-3xl md:text-4xl font-bold text-white">200+</p>
                 <p className="text-neutral-300 mt-1 text-sm md:text-base">Active Players</p>
               </div>
               <div className="text-center">
-                <p className="text-3xl md:text-4xl font-bold text-white">10+</p>
+                <p className="text-3xl md:text-4xl font-bold text-white">8+</p>
                 <p className="text-neutral-300 mt-1 text-sm md:text-base">Sports Supported</p>
               </div>
               <div className="text-center">
